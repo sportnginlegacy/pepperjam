@@ -7,7 +7,9 @@ module Pepperjam
       
       def find(params = {})
         validate_params!(params, %w{startDate endDate website})
-        get_service(service_url, params)
+        website = ",website" if params.include?("website")
+        headers = "program_name,date,sid,epc,impressions,clicks,merchant_revenue,total_commission,creative_id,creative_type#{website}"
+        get_service(service_url, params, headers)
       end
       
     end # << self

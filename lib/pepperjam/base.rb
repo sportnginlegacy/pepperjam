@@ -35,7 +35,7 @@ module Pepperjam
         raise ArgumentError.new("Invalid parameters: #{invalid_params.join(', ')}") if invalid_params.length > 0
       end
       
-      def get_service(path, query)
+      def get_service(path, query, headers)
         query.keys.each{|k| query[k.to_s] = query.delete(k)}
         query.merge!({'target' => 'reports.sid', 'format' => 'csv', 'username' => credentials['username'], 'password' => credentials['password']})
 
@@ -48,8 +48,9 @@ module Pepperjam
         end
 
         unless validate_response(response) or response.response.body.blank?
+          debugger
           str = response.response.body
-          str.gsub!(" ", "_").downcase!
+          str = headers + "\n" + str
           
           results = FasterCSV.parse(str, {:col_sep => ",", :row_sep => "\n", :headers => true})
         end
