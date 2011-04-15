@@ -47,7 +47,7 @@ module Pepperjam
           nil
         end
 
-        unless validate_response(response)
+        unless validate_response(response) or response.response.body.blank?
           str = response.response.body
           str.gsub!(" ", "_").downcase!
           
