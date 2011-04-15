@@ -1,4 +1,4 @@
-module Pepeprjam
+module Pepperjam
   class Commission < Base
     class << self
       def service_url
