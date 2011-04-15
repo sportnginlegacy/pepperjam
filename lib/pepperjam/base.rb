@@ -48,7 +48,6 @@ module Pepperjam
         end
 
         unless validate_response(response) or response.response.body.blank?
-          debugger
           str = response.response.body
           str = headers + "\n" + str
           
