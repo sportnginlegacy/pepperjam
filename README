@@ -1,0 +1,18 @@
+pepperjam
+
+PepperJam HTTP REST interface
+
+Currently you will need a ~/.pepperjam.yml to use this.
+
+Retrieves data from PepperJam via HTTP REST and returns simple objects:
+
+[Example]
+
+    Pepperjam::Commission.find("startDate" => "2011-04-01", "endDate" => "2011-04-15")
+
+[Example YAML]
+
+    username: test@skynet.com
+    password: secure_password
+
+Methods accept the same parameters as the PepperJam API.
