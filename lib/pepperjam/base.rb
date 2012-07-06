@@ -51,7 +51,7 @@ module Pepperjam
           str = response.response.body
           str = headers + "\n" + str
           
-          results = FasterCSV.parse(str, {:col_sep => ",", :row_sep => "\n", :headers => true})
+          results = CSV.parse(str, {:col_sep => ",", :row_sep => "\n", :headers => true})
         end
 
         results.map{|r| self.new(r.to_hash)}
