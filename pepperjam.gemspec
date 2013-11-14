@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.homepage    = ""
   s.summary     = %q{Ruby gem to hit the PepperJam report api.}
   s.description = %q{Ruby gem to hit the PepperJam report api.}
+  s.license     = "MIT"
 
   s.rubyforge_project = "pepperjam"
 
